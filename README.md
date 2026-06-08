@@ -1,115 +1,156 @@
-# 🚗 RFID-Based Zone-Aware Speed Control System
+# RFID-Based Zone-Aware Speed Control System
 
-## 📌 Overview
+## 🚗 Overview
 
-This project implements a **zone-aware intelligent speed limiting system** for vehicles using RFID-based environmental detection.
+This project implements a **zone-aware intelligent speed control system** for vehicles using RFID-based environmental detection.
 
-When a vehicle enters restricted areas such as **schools or hospitals**, the system automatically enforces speed limits by restricting gear control.
+The system automatically enforces speed restrictions when a vehicle enters predefined sensitive zones such as **schools, hospitals, or restricted areas**.
 
-A working prototype was built using an RC car integrated with an **ESP8266**, RFID module, and a real-time monitoring dashboard.
+A working prototype was developed using an RC car integrated with an ESP8266 microcontroller, along with real-time monitoring via a web dashboard.
 
 ---
 
 ## ⚠️ Problem Statement
 
-Drivers frequently ignore speed limits in sensitive zones like schools and hospitals, creating serious safety risks.
+Speed limits in critical zones are often ignored due to:
 
-Manual enforcement methods are inconsistent and unreliable.
+* Lack of strict enforcement
+* Human negligence
+* Absence of automated control systems
+
+This leads to increased risks, especially in high-sensitivity areas like school zones and hospitals.
 
 ---
 
 ## 💡 Solution
 
-This system enforces **automatic speed restriction** by:
+This system introduces **automatic speed enforcement** by:
 
 * Detecting zones using RFID tags
-* Dynamically limiting vehicle speed
-* Restricting gear shifting in real-time
+* Dynamically restricting speed and gear
+* Providing real-time telemetry to a monitoring dashboard
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-[ESP8266 Vehicle Unit]
-   ├── RFID Zone Detection
-   ├── Gear Restriction Logic
-   └── UDP Telemetry Transmission
-                ↓
-[Python Server]
-   └── UDP → WebSocket Bridge
-                ↓
-[Web Dashboard]
-   └── Real-Time Monitoring (Speed, Gear, Zone)
+Vehicle Unit (ESP8266)
+│
+├── RFID Reader (MFRC522)
+├── Motor Driver (L298N)
+├── Servo Motor (Steering)
+│
+├── Zone Detection Logic
+├── Gear Restriction System
+└── UDP Telemetry Transmission
+        ↓
+Python Server (UDP → WebSocket Bridge)
+        ↓
+Web Dashboard (Real-Time Monitoring)
 ```
 
 ---
 
 ## ✨ Features
 
-* RFID-based zone detection
-* Automatic speed limiting
-* Gear restriction (max 2 gears in restricted zones)
-* Reverse gear handling
-* Real-time telemetry using UDP
-* Live dashboard via WebSockets
-* Mobile control using RemoteXY
+* 📍 Zone-based speed limiting using RFID
+* ⚙️ Automatic gear restriction (e.g., max 2 gears in restricted zones)
+* 🔁 Reverse gear handling
+* 📡 Real-time telemetry using UDP
+* 🌐 Web dashboard via WebSockets
+* 📱 Mobile control using RemoteXY
 
 ---
 
 ## ⚙️ Working Principle
 
-1. RFID tag is scanned by the vehicle
-2. Zone is identified (e.g., School Zone)
-3. Speed restriction is enforced
+1. Vehicle scans an RFID tag
+2. Zone is identified (e.g., *Hospital Zone*)
+3. Speed restriction is activated
 4. Gear shifting is limited automatically
-5. Data is transmitted via UDP
-6. Dashboard updates in real-time
+5. Telemetry data is sent via UDP
+6. Dashboard updates in real time
 
 ---
 
-## 🛠️ Tech Stack
+## 🧰 Tech Stack
 
-**Hardware**
-
-* ESP8266
-* MFRC522 RFID Module
-* L298N Motor Driver
-* Servo Motor
-
-**Software**
-
-* Python (asyncio, websockets)
-* cpp (Arduino ide)
-* RemoteXY (Mobile UI)
-* HTML/CSS/JS Dashboard
+| Component       | Technology Used              |
+| --------------- | ---------------------------- |
+| Microcontroller | ESP8266                      |
+| Communication   | WiFi (UDP Protocol)          |
+| Backend         | Python (asyncio, websockets) |
+| Dashboard       | HTML, JavaScript             |
+| Mobile Control  | RemoteXY                     |
+| Hardware        | MFRC522, L298N, Servo Motor  |
 
 ---
 
-## 📉 Limitations
+## 📁 Repository Structure
 
-* No real speed feedback (no encoder used)
-* RFID requires physical tags (not scalable)
-* No fail-safe mechanism on communication loss
-
----
-
-## 🚀 Future Improvements
-
-* GPS-based geofencing instead of RFID
-* Wheel encoder for real speed measurement
-* Automatic braking system
-* Reliable communication (ACK/retry mechanisms)
-* Integration with real vehicle ECU systems
+```
+rfid-zone-speed-control/
+│
+├── firmware/
+│   └── esp8266_controller.ino
+│
+├── server/
+│   └── udp_ws_bridge.py
+│
+├── dashboard/
+│   └── index.html
+│
+├── docs/
+│   └── (images / demo videos)
+│
+├── requirements.txt
+└── README.md
+```
 
 ---
 
 ## ⚠️ Important Note
 
-Speed values in this prototype are **estimated based on PWM output**, not actual measured velocity.
+Speed values in this prototype are **simulated using PWM output**.
+
+* No physical speed sensor or encoder is used
+* Values represent *relative speed*, not actual vehicle speed
+
+---
+
+## ❌ Limitations
+
+* No real speed feedback (no encoder)
+* RFID requires physical tag infrastructure
+* No fail-safe mechanism for communication loss
+* Hardcoded network configuration (IP dependency)
+
+---
+
+## 🚀 Future Improvements
+
+* Replace RFID with **GPS-based geofencing**
+* Add **wheel encoder** for accurate speed measurement
+* Implement **automatic braking system**
+* Add **fail-safe logic for signal loss**
+* Improve communication reliability (ACK/retry mechanism)
+* Integrate with real automotive systems (CAN bus, etc.)
+
+---
+
+## 🎥 Demo
+
+*(Add images, videos, or GIFs here)*
 
 ---
 
 ## 👨‍💻 Author
 
-Jonathan,kishore R
+**Your Name**
+
+---
+
+## 📜 License
+
+This project is for academic and demonstration purposes.
