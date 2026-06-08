@@ -100,10 +100,6 @@ rfid-zone-speed-control/
 │
 ├── dashboard/
 │   └── index.html
-│
-├── docs/
-│   └── (images / demo videos)
-│
 ├── requirements.txt
 └── README.md
 ```
@@ -139,15 +135,9 @@ Speed values in this prototype are **simulated using PWM output**.
 
 ---
 
-## 🎥 Demo
-
-*(Add images, videos, or GIFs here)*
-
----
-
 ## 👨‍💻 Author
 
-**Your Name**
+Jonathan, Kishore
 
 ---
 
