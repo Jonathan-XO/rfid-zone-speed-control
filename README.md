@@ -100,6 +100,9 @@ rfid-zone-speed-control/
 │
 ├── dashboard/
 │   └── index.html
+├── docs/ 
+|   └── (images / demo videos)
+|
 ├── requirements.txt
 └── README.md
 ```
