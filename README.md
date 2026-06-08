@@ -80,6 +80,7 @@ This system enforces **automatic speed restriction** by:
 **Software**
 
 * Python (asyncio, websockets)
+* cpp (Arduino ide)
 * RemoteXY (Mobile UI)
 * HTML/CSS/JS Dashboard
 
@@ -103,12 +104,6 @@ This system enforces **automatic speed restriction** by:
 
 ---
 
-## 📸 Demo
-
-*Add images/videos here*
-
----
-
 ## ⚠️ Important Note
 
 Speed values in this prototype are **estimated based on PWM output**, not actual measured velocity.
@@ -117,4 +112,4 @@ Speed values in this prototype are **estimated based on PWM output**, not actual
 
 ## 👨‍💻 Author
 
-Your Name
+Jonathan,kishore R
